@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "league-mmr-simulation"
+version = "0.1.0"
+description = "Match making simulation for multiplayer games"
+authors = ["ihkap11 <bpakhi97@gmail.com>"]
+readme = "README.md"
+packages = [{include = "league_mmr_simulation"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.2"
+scipy = "^1.11.4"
+pyyaml = "^6.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
