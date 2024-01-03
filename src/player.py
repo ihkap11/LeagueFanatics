@@ -1,6 +1,7 @@
 import uuid
 from skill import StatsCalculator
 from player_db import PlayerDB
+from typing import List
 
 player_db = PlayerDB()
 
@@ -64,10 +65,10 @@ class Player:
         self.level = existing_player_data["level"]
         self.role_preference = existing_player_data["role_preference"]
 
-    def set_role_preference(self, role_preference):
+    def set_role_preference(self, role_preference: List[int]):
         self.role_preference = role_preference
 
-    def __str__(self):
+    def __repr__(self):
         return (
             f"Player(Name: {self.name}, ID: {self.id}, "
             f"Skill: {self.skill}, Uncertainty: {self.uncertainty}, "
