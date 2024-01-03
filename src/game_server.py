@@ -75,11 +75,12 @@ class Matchmaking:
         team1 = self.__create_bot_team(player)
         team2 = self.__create_bot_team(player, all_bots=True)
         self.__match_outcome(team1, team2)
-        updated_team1, updated_team2 = StatsCalculator.update_team_player_skills(
-            team1, team2
-        )
+        updated_team1, updated_team2 = Team().update_team_stats(team1, team2)
 
         print(updated_team1)
         print(updated_team2)
 
+        return True
+
+    def launch_ranked_game(self, player: Player):
         return True
