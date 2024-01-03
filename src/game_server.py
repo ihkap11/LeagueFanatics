@@ -49,7 +49,7 @@ class Matchmaking:
             players = []
         else:
             players = [player]
-            team_size -= team_size
+            team_size -= 1
 
         for i in range(team_size):
             bot_player = Player(name=f"bot_{i}", skill=skill, uncertainty=uncertainty)
