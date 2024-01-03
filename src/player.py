@@ -1,6 +1,5 @@
-import yaml
 import uuid
-from skill import TrueSkill
+from skill import StatsCalculator
 from player_db import PlayerDB
 
 player_db = PlayerDB()
@@ -55,7 +54,7 @@ class Player:
         """
         self.id = uuid.uuid4()
         self.role_preference = None
-        self.skill, self.uncertainty, self.level = TrueSkill().new_player_skill()
+        self.skill, self.uncertainty, self.level = StatsCalculator.new_player_skill()
         self.__save_player_details()
 
     def load_existing_player(self):

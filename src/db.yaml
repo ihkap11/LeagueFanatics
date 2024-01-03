@@ -45,3 +45,39 @@ Players:
     - 2
     skill: 25.0
     uncertainty: 8.333333333333334
+  bot_0:
+    id: b1478eac-0454-4ce1-92c2-92443869e572
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_1:
+    id: 15eae6df-9575-403e-aef4-1c5089df6c47
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_2:
+    id: 910c6c79-d085-4d49-852d-14092deca11a
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_3:
+    id: 6dc9e6b9-7122-4adf-86c6-1a641581541e
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_4:
+    id: 1008f293-04aa-4de4-aa4f-68bce382940b
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  huleo:
+    id: 5b37316e-9d8e-43bb-9986-28cf91f9844e
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
