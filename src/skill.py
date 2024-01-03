@@ -21,13 +21,13 @@ class TrueSkill:
         level = 0
         return skill, uncertainty, level
 
-    def avg_team_skill(self, team):
-        team_skill = 0
-        team_uncertainty = 0
-        for player in team.players.values():
-            team_skill += player.skill
-            team_uncertainty += player.uncertainty
-        return team_skill / len(team.players), team_uncertainty / len(team.players)
+    def avg_team_stats(self, players):
+        skill_sum = 0
+        uncertainty_sum = 0
+        for player in players:
+            skill_sum += player.skill
+            uncertainty_sum += player.uncertainty
+        return skill_sum / len(players), uncertainty_sum / len(players)
 
     def v(self, x, epsilon=0):
         pdf = norm.pdf(x)
@@ -57,12 +57,15 @@ class TrueSkill:
     def update_team_player_skills(self, team1, team2):
         updated_team1, updated_team2 = self.update_team_skill(team1, team2)
 
-        for player in updated_team1.players.values():
+        for player in updated_team1.players:
             player.skill = updated_team1.skill
             player.uncertainty = np.sqrt(updated_team1.skill**2 + self.tau**2)
 
-        for player in updated_team2.players.values():
+        for player in updated_team2.players:
             player.skill = updated_team2
             player.uncertainty = np.sqrt(updated_team2.skill**2 + self.tau**2)
 
         return updated_team1, updated_team2
+
+
+StatsCalculator = TrueSkill()
