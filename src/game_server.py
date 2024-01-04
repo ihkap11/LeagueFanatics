@@ -59,16 +59,25 @@ class Matchmaking:
     def __match_outcome(self, team1: Team, team2: Team):
         if random.choice([True, False]):
             team1.wins = True
-        else:
             team2.wins = False
+        else:
+            team1.wins = False
+            team2.wins = True
 
     def simulate_match(self, player: Player, mode: GameType):
         self.__set_match_mode(mode=mode)
         match mode:
             case GameType.PRACTICE:
-                return self.launch_practice_game(player)
+                return self.calliberate_player(player)
             case GameType.RANKED:
                 return self.launch_ranked_game(player)
+
+    def calliberate_player(self, player: Player, calliberation_rounds: int = 10):
+        for i in range(calliberation_rounds):
+            # add game history
+            self.launch_practice_game(player)
+            print(f"Match {i}")
+        return True
 
     def launch_practice_game(self, player: Player):
         # create team for player
@@ -79,8 +88,6 @@ class Matchmaking:
 
         print(updated_team1)
         print(updated_team2)
-
-        return True
 
     def launch_ranked_game(self, player: Player):
         return True
