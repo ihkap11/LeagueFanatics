@@ -1,22 +1,17 @@
 from skill import StatsCalculator
 from player import Player
 from typing import List
+from schemas import TeamData
 
 
 class Team:
-    def __init__(
-        self,
-        players: List[Player] = [],
-        size: int = 5,
-        skill=None,
-        wins=None,
-        uncertainty=None,
-    ):
-        self.players = players
-        self.size = size
-        self.skill = skill
-        self.uncertainty = uncertainty
-        self.wins = wins
+    def __init__(self, team_data: TeamData):
+        self.players = team_data.players
+        self.size = team_data.size
+        self.skill = team_data.skill
+        self.uncertainty = team_data.uncertainty
+        self.wins = team_data.wins
+
         if self.__validate_team_size():
             self.__set_team_stats(self.players)
 

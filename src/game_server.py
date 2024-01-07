@@ -4,6 +4,7 @@ import random
 from typing import List
 from skill import StatsCalculator
 from enum import Enum
+from schemas import PlayerData
 
 
 class GameType(Enum):
@@ -52,7 +53,9 @@ class Matchmaking:
             team_size -= 1
 
         for i in range(team_size):
-            bot_player = Player(name=f"bot_{i}", skill=skill, uncertainty=uncertainty)
+            bot_player = Player(
+                PlayerData(name=f"bot_{i}", skill=skill, uncertainty=uncertainty)
+            )
             players.append(bot_player)
         return Team(players=players)
 

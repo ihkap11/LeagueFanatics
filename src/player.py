@@ -2,28 +2,20 @@ import uuid
 from skill import StatsCalculator
 from player_db import PlayerDB
 from typing import List
+from schemas import PlayerData
 
 player_db = PlayerDB()
 
 
 class Player:
-    def __init__(
-        self,
-        name,
-        db=player_db.db,
-        id=None,
-        skill=None,
-        uncertainty=None,
-        level=None,
-        role_preference=None,
-    ):
+    def __init__(self, player_data: PlayerData, db=player_db.db):
         self.db = db
-        self.name = name
-        self.id = id if id is not None else uuid.uuid4()
-        self.skill = skill
-        self.uncertainty = uncertainty
-        self.level = level
-        self.role_preference = role_preference
+        self.name = player_data.name
+        self.id = player_data.id if player_data.id else uuid.uuid4()
+        self.skill = player_data.skill
+        self.uncertainty = player_data.uncertainty
+        self.level = player_data.level
+        self.role_preference = player_data.role_preference
 
         if self.__is_new_player():
             self.enroll_new_player()
