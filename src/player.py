@@ -1,30 +1,35 @@
 import uuid
 from skill import StatsCalculator
 from player_db import PlayerDB
-from typing import List
+from typing import List, Optional
+from schemas import PlayerData
+from pydantic import BaseModel, Field
+import uuid
+
+
+class PlayerData(BaseModel):
+    name: str
+    id: uuid.UUID = Field(default_factory=uuid.uuid4)
+    skill: Optional[float] = 0.0
+    uncertainty: Optional[float] = 0.0
+    level: Optional[int] = 0
+    role_preference: Optional[List[int]] = []
+
 
 player_db = PlayerDB()
 
 
-class Player:
-    def __init__(
-        self,
-        name,
-        db=player_db.db,
-        id=None,
-        skill=None,
-        uncertainty=None,
-        level=None,
-        role_preference=None,
-    ):
-        self.db = db
-        self.name = name
-        self.id = id if id is not None else uuid.uuid4()
-        self.skill = skill
-        self.uncertainty = uncertainty
-        self.level = level
-        self.role_preference = role_preference
+class Player(BaseModel):
+    db: Optional[dict] = None
+    name: str
+    id: uuid.UUID = Field(default_factory=uuid.uuid4)
+    skill: Optional[float] = None
+    uncertainty: Optional[float] = None
+    level: Optional[int] = None
+    role_preference: Optional[List[int]] = None
 
+    def __init__(self, player_data: PlayerData, db=player_db.db, **kwargs):
+        super().__init__(**player_data.dict(), db=db, **kwargs)
         if self.__is_new_player():
             self.enroll_new_player()
         else:
