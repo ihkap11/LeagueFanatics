@@ -1,5 +1,5 @@
 from player import Player, player_db
-from team import Team
+from team import Team, TeamData
 import random
 from typing import List
 from skill import StatsCalculator
@@ -57,7 +57,7 @@ class Matchmaking:
                 PlayerData(name=f"bot_{i}", skill=skill, uncertainty=uncertainty)
             )
             players.append(bot_player)
-        return Team(players=players)
+        return Team(team_data=TeamData(players=players, wins=False))
 
     def __match_outcome(self, team1: Team, team2: Team):
         if random.choice([True, False]):
@@ -87,7 +87,7 @@ class Matchmaking:
         team1 = self.__create_bot_team(player)
         team2 = self.__create_bot_team(player, all_bots=True)
         self.__match_outcome(team1, team2)
-        updated_team1, updated_team2 = Team().update_team_stats(team1, team2)
+        updated_team1, updated_team2 = team1.update_team_stats(team1, team2)
 
         print(updated_team1)
         print(updated_team2)
