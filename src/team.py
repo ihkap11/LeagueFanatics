@@ -1,7 +1,15 @@
 from skill import StatsCalculator
 from player import Player
-from typing import List
-from schemas import TeamData
+from typing import List, Optional
+from pydantic import BaseModel
+
+
+class TeamData(BaseModel):
+    players: List[Player] = []
+    size: int = 5
+    skill: Optional[float] = 0.0
+    uncertainty: Optional[float] = 0.0
+    wins: bool
 
 
 class Team:
