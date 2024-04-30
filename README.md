@@ -1,4 +1,12 @@
 # [WIP] League Fanatics
+Motivation: - Frustrated by League of Legend's matchmaking ⚔️, I decided to start working on my own [game simulation](https://github.com/ihkap11/LeagueFanatics) to understand  matchmaking and ranking algorithms, and eventually build a working software. 
+- Short term:
+  - Built a client-server using FastAPI REST and websockets.
+  - Working on dockerizing the application, kubernetes for orchestration and redpanda for live streaming.
+- Long term:
+   - For matchmaking use: [_A Bayesian Approximation Method for Online Ranking_](https://jmlr.org/papers/volume12/weng11a/weng11a.pdf) by Weng and Lin.
+   - have plugins for different matchmaking algorithms: TrueSkill, Elo, (find more) (try to match league's MMR)
+
 The intention behind this project from a software standpoint is to build a simple client-server system that can handle 100s of matchmaking requests and then scale it to billions of simulated requests. In the process, I want to compare different open-source tools and develop sense of when to use what, and incrementally integrate these tools to support increasing complexities.
 
 A rough take on system design.
