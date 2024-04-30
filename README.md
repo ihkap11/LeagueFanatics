@@ -7,12 +7,12 @@ A rough take on system design.
 
 
 Todos:
-[x] Streamlit with asynchronous matchmaking service. [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/client/client.py)]
-[x] FastAPI REST APIs for supporting client initiated player info requests. [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/server/api.py)]
-[x] TrueSkill matchmaking algorithm implementation [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/matchmaker_service/skill.py)]
-[] integrate postgress DB
-[] dockerise application
-[] use redpanda/kafka/rabbitMQ for streaming instead of plain websockets.
+- [x] Streamlit with asynchronous matchmaking service. [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/client/client.py)]
+- [x] FastAPI REST APIs for supporting client initiated player info requests. [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/server/api.py)]
+- [x] TrueSkill matchmaking algorithm implementation [[here](https://github.com/ihkap11/LeagueFanatics/blob/main/src/matchmaker_service/skill.py)]
+- [] integrate postgress DB
+- [] dockerise application
+- [] use redpanda/kafka/rabbitMQ for streaming instead of plain websockets.
 
 ### Resources:
 - https://www.microsoft.com/en-us/research/project/trueskill-ranking-system/publications/
