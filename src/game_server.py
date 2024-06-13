@@ -10,6 +10,7 @@ from schemas import PlayerData
 class GameType(Enum):
     PRACTICE = 0
     RANKED = 1
+    CALLIBERATION = 2
 
 
 class Game:
@@ -20,8 +21,15 @@ class Game:
     def __is_queue_ready(self, queue: List):
         return len(queue) > 10
 
+    def __is_player_calliberated(self, player: Player):
+        return player.level > 10
+
     def request_match(self, player: Player, mode: GameType):
+        if not self.__is_player_calliberated:
+            mode = GameType.CALLIBERATION
         match mode:
+            case GameType.CALLIBERATION:
+                outcome = self.matchmaker.simulate_match(player, mode)
             case GameType.PRACTICE:
                 outcome = self.matchmaker.simulate_match(player, mode)
             case GameType.RANKED:
@@ -70,17 +78,12 @@ class Matchmaking:
     def simulate_match(self, player: Player, mode: GameType):
         self.__set_match_mode(mode=mode)
         match mode:
+            case GameType.CALLIBERATION:
+                return self.launch_practice_game(player)
             case GameType.PRACTICE:
-                return self.calliberate_player(player)
+                return self.launch_practice_game(player)
             case GameType.RANKED:
                 return self.launch_ranked_game(player)
-
-    def calliberate_player(self, player: Player, calliberation_rounds: int = 10):
-        for i in range(calliberation_rounds):
-            # add game history
-            self.launch_practice_game(player)
-            print(f"Match {i}")
-        return True
 
     def launch_practice_game(self, player: Player):
         # create team for player

@@ -1,0 +1,83 @@
+Players:
+  alice:
+    id: 123e4567-e89b-12d3-a456-426614174000
+    level: 1
+    role_preference:
+    - 1
+    - 0
+    - 3
+    - 2
+    skill: 10
+    uncertainty: 2
+  bob:
+    id: 123e4567-e89b-12d3-a456-426614174001
+    level: 2
+    role_preference:
+    - 0
+    - 1
+    - 3
+    - 2
+    skill: 15
+    uncertainty: 3
+  charlie:
+    id: 123e4567-e89b-12d3-a456-426614174002
+    level: 1
+    role_preference:
+    - 2
+    - 1
+    - 3
+    - 0
+    skill: 12
+    uncertainty: 4
+  jamie:
+    id: 06d3ef09-2826-4d6d-84de-a8c9a03bb7b9
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  maxie:
+    id: 77ce5d19-02d4-43b9-90ee-af729fb045f5
+    level: 0
+    role_preference:
+    - 3
+    - 1
+    - 0
+    - 2
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_0:
+    id: b1478eac-0454-4ce1-92c2-92443869e572
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_1:
+    id: 15eae6df-9575-403e-aef4-1c5089df6c47
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_2:
+    id: 910c6c79-d085-4d49-852d-14092deca11a
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_3:
+    id: 6dc9e6b9-7122-4adf-86c6-1a641581541e
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  bot_4:
+    id: 1008f293-04aa-4de4-aa4f-68bce382940b
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
+  huleo:
+    id: 5b37316e-9d8e-43bb-9986-28cf91f9844e
+    level: 0
+    role_preference: null
+    skill: 25.0
+    uncertainty: 8.333333333333334
